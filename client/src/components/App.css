@@ -1,0 +1,34 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  html {
+    font-family: "Montserrat", sans-serif;
+  }
+  body {
+    background-image: url("https://www.thenbs.com/-/media/uk/new-images/by-section/knowledge/knowledge-articles-hero/multi-storey-car-park.jpg?as=1&w=1920&hash=E13FAC2B2C598C30D7DB74588E987B9DAF63F798");
+    backdrop-filter: blur(2px);
+  }
+  .field {
+    background: rgba(250, 248, 248, 0.2);
+    display: block;
+    margin: 0 auto;
+    padding: 15px;
+    box-shadow: 0 1px 5px rgb(138, 137, 137);
+  }
+  .cont {
+    position: relative;
+    margin: 15% 0 0 35%;
+  }
+  .cont-button {
+    position: relative;
+    margin: 2% 45%;
+  }
+  .cont-button2 {
+    position: relative;
+    margin: 0% 41%;
+  }
+  .grayscale {
+    filter: invert(100%);
+  }
