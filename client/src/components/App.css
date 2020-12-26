@@ -32,3 +32,15 @@
   .grayscale {
     filter: invert(100%);
   }
+  .mapview {
+    height: 85%;
+    width: 100%;
+    margin: 40px 20px;
+    border: 1px solid #555;
+  }
+  .secondHome {
+    display: flex;
+    background-color: #ffffff;
+  background-image: url("https://www.transparenttextures.com/patterns/green-gobbler.png");
+    height: 89.5vh;
+  }

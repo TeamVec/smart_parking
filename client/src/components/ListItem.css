@@ -1,0 +1,14 @@
+.list-item{
+    display: flex !important;
+    /* align-items: center; */
+    cursor: pointer;
+    height:125px;
+    color: white;
+    text-decoration: none;
+    border-radius: 7px;
+}
+
+.list-item.item img{  
+    width: 140px;
+    height: 100px;
+    }
