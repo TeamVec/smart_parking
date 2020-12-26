@@ -1,16 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
+import  history  from "../history";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class Header extends React.Component {
     temp=''
     componentDidMount(){
         this.temp=window.sessionStorage.getItem("isSignedIn");
-        
+        console.log(this.temp)
+    }
+    signout=()=>{
+        window.sessionStorage.removeItem("isSignedIn");
+        window.location.reload()
     }
     renderAuth(){
-        if(this.temp=!"yes"){
+        if(this.temp!="yes"){
             return(
                 <div>
                     <Link style={{textDecoration:'none',fontWeight:"500"}} to='/hostsignin' className='item'>Host</Link>
@@ -23,7 +28,7 @@ class Header extends React.Component {
             return(
                 <div>
                 <Link style={{textDecoration:'none',fontWeight:"500"}} to='/previousBookings' className='item'>Previous Bookings</Link>
-                <Link style={{textDecoration:'none',fontWeight:"500"}} to='/signIn' className='item'>SignOut</Link>
+                <button onClick={this.signout} style={{textDecoration:'none',fontWeight:"500"}}  className='item'>SignOut</button>
             </div>
                 
             )

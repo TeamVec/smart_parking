@@ -2,6 +2,7 @@ import React from 'react'
 import {Field,reduxForm} from 'redux-form'
 import history from '../history'
 import DatePicker from 'react-datepicker'
+import Header from './Header'
 import "react-datepicker/dist/react-datepicker.css";
 
 class Home extends React.Component {
@@ -40,11 +41,11 @@ class Home extends React.Component {
         )
           
     }
-
     render(){ 
         
         return (
             <div>
+                <Header/>
                 <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="ui error form">
                     <Field name='location' component={this.renderInput}/>
                     <DatePicker

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { NavLink as Link} from "react-router-dom";
 import history from '../history'
+import Header from './Header'
 function SignUp() {
     
     const [user, setNote] = useState({
@@ -24,7 +24,7 @@ function SignUp() {
     function signUp(event) {
      
       event.preventDefault();
-     if(user.password===user.confirmPassword){
+     if(user.password==user.confirmPassword){
       fetch("http://localhost:5000/auth/user/register", {
         method: "POST",
         headers: {
@@ -44,7 +44,7 @@ function SignUp() {
             window.sessionStorage.setItem("isSignedIn","yes");
             // const accessToken = data.token;
             // window.sessionStorage.setItem("jwtToken",accessToken);
-          //  history.push("/home");
+          history.push("/");
           }
         });
      }
@@ -59,7 +59,7 @@ function SignUp() {
     
       return ( 
        <div>
-        {/* <Header /> */}
+         <Header /> 
            <div className="signin">
            <h3 className="sign">
                 Sign Up

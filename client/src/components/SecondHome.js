@@ -1,6 +1,7 @@
 import React from 'react'
 import List from './List'
 import MapSecondHome from './MapSecondHome'
+import Header from "./Header";
 
 class SecondHome extends React.Component {
     state={parkingList:[]}
@@ -27,9 +28,12 @@ class SecondHome extends React.Component {
             )
         }
     return (
+        <div>
+            <Header/>
         <div className="secondHome">
             <List parkingList={this.state.parkingList}/>
             <MapSecondHome parkingList={this.state.parkingList}/>
+        </div>
         </div>
     )
     }

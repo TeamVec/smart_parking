@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Header from './Header'
 import Map  from './Map'
 
 
@@ -29,6 +30,8 @@ class ParkingDescripition extends React.Component {
             return(<div>Loading..</div>)
         }
         return (
+            <div>
+                <Header/>
             <div className='ui container' style={{margin:"0" ,backgroundColor: "#ffffff", backgroundImage: 'url("https://www.transparenttextures.com/patterns/green-gobbler.png")',height:"91vh",width:"100%"}}>
                 <div  className='ui grid'>
                     <div className='seven wide column'>
@@ -70,6 +73,7 @@ class ParkingDescripition extends React.Component {
 
                 </div>
                 
+            </div>
             </div>
         )
     }  

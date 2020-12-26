@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link} from "react-router-dom";
 import history from '../history'
+import Header from './Header'
 
 function SignIn() {
     const [check,setCheck]= useState("");
@@ -57,7 +58,7 @@ function SignIn() {
   
     return (
       <div>
-      {/* <Header /> */}
+       <Header /> 
       <div className="signin">
         <h3 className="sign">Sign In</h3>
         <form>
