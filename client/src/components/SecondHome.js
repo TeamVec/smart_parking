@@ -17,7 +17,6 @@ class SecondHome extends React.Component {
         .then((data) => {
           this.setState({parkingList:data});
         });
-
     }
     render(){
         if(!this.state.parkingList){
