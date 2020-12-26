@@ -1,5 +1,6 @@
 import React from 'react'
 import {Field,reduxForm} from 'redux-form'
+import history from '../history'
 
 class Home extends React.Component {
 
@@ -21,6 +22,7 @@ class Home extends React.Component {
     }
     onSubmit= async (formValues)=>{
         console.log(formValues)
+        history.push('/list')
         
     }
     onLocationsubmit=() =>{
