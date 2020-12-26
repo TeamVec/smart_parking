@@ -36,13 +36,13 @@ class Home extends React.Component {
             window.navigator.geolocation.getCurrentPosition(
             position =>{myLocation.lat=position.coords.latitude;
                 myLocation.long=position.coords.longitude;
-                console.log(myLocation)},
+                console.log(myLocation);
+                history.push(`/list/${myLocation.lat}/${myLocation.long}`)
+            },
             err => { console.log(err.message); }
-        )
-          
+        ) 
     }
     render(){ 
-        
         return (
             <div>
                 <Header/>
@@ -53,8 +53,6 @@ class Home extends React.Component {
                      onChange={date=>this.setState({startDate:date})}
                      dateFormat='yyyy/MM/dd'
                     />
-
-                   
                     <button  className="btn btn-info cont-button" style={{fontSize: "1.6em",backgroundColor: "rgb(245, 6, 6)",borderColor: "rgb(245, 6, 6)"}}>Search</button>
                 </form>
                 <button onClick={this.onLocationsubmit} className="btn btn-info cont-button2" style={{fontSize: "1.2em",backgroundColor: "rgb(245, 6, 6)",borderColor: "rgb(245, 6, 6)"}}>
