@@ -51,14 +51,16 @@ router.post("/parkingDetails", function (req, res) {
 router.post("/parkings", function (req, res) {
 
    mysqlConnnection.query(
-    "SELECT parking_id,p_name,latitude,longitude,p_description,fare_car,fare_bike,address,spots,verified,owner_id,bike_spots,( 6371 * acos( cos( radians(?) ) * cos( radians( latitude ) ) *\
-    cos( radians( longitude ) - radians(?) ) + sin( radians(?) ) *sin( radians( latitude ) ) ) ) AS distance FROM parking_details HAVING\
-    distance < 2 ORDER BY distance LIMIT 0 , 20",
+    "SELECT parking_id,p_name,latitude,longitude,p_description,fare_car,address,spots,verified,COUNT(parking_id) as booked  from \
+    (SELECT parking_id,p_name,latitude,longitude,p_description,fare_car,address,spots,verified from parking_details where ( 6371 * acos( cos( radians(23.195102) ) * cos( radians( latitude ) ) *\
+    cos( radians( longitude ) - radians(79.99634396) ) + sin( radians(23.195102) ) *\
+    sin( radians( latitude ) ) ) ) <2)as t2 natural join booking WHERE (arival<13 AND 13<checkout)OR(arival<16 AND 16<checkout) GROUP BY parking_id",
     [req.body.lat,req.body.lng,req.body.lat],
     function (err, rows, field) {
       if (err) {
         console.log(err);
       } else {
+        
         res.send(rows);
       }
     }
