@@ -3,7 +3,34 @@ import { Link } from 'react-router-dom';
 import './Header.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const Header=()=> {
+class Header extends React.Component {
+    temp=''
+    componentDidMount(){
+        this.temp=window.sessionStorage.getItem("isSignedIn");
+        
+    }
+    renderAuth(){
+        if(this.temp=!"yes"){
+            return(
+                <div>
+                    <Link style={{textDecoration:'none',fontWeight:"500"}} to='/hostsignin' className='item'>Host</Link>
+                    <Link style={{textDecoration:'none',fontWeight:"500"}} to='/signUp' className='item'> SignUp</Link>
+                    <Link style={{textDecoration:'none',fontWeight:"500"}} to='/signIn' className='item'>SignIn</Link>
+                </div>
+            )
+        }
+        else{
+            return(
+                <div>
+                <Link style={{textDecoration:'none',fontWeight:"500"}} to='/previousBookings' className='item'>Previous Bookings</Link>
+                <Link style={{textDecoration:'none',fontWeight:"500"}} to='/signIn' className='item'>SignOut</Link>
+            </div>
+                
+            )
+        }
+    }
+
+    render(){
     return (
         <div className="navbar" style={{backgroundColor: "grey", padding:"10px 32px"}}>
             <Link style={{textDecoration:'none'}} to='/' className='item'>
@@ -11,11 +38,11 @@ const Header=()=> {
                <span style={{color:'white'}}>ark</span>Here</h1>
             </Link>
             <div >
-                <Link style={{textDecoration:'none',fontWeight:"500"}} to='/hostsignin' className='item'>Host</Link>
-                <Link style={{textDecoration:'none',fontWeight:"500"}} to='/signUp' className='item'> SignUp</Link>
-                <Link style={{textDecoration:'none',fontWeight:"500"}} to='/signIn' className='item'>SignIn</Link>
-            </div>
+                
+                {this.renderAuth()}
+                </div>
             </div>   
     );
+    }
 }
 export default Header
