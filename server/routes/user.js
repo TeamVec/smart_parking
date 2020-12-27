@@ -16,7 +16,7 @@ const router = express.Router();
 router.post("/bookings", function (req, res) {
   const userId = req.body.email;
   mysqlConnnection.query(
-    "SELECT amount_paid,arival,checkout,p_name,address FROM BOOKING,PARKING_DETAILS WHERE booking.user_id=? AND parking_details.parking_id=booking.parking_id",
+    "SELECT amount_paid,arival,checkout,p_name,address FROM booking,parking_details WHERE booking.user_id=? AND parking_details.parking_id=booking.parking_id",
     [userId],
     function (err, rows, field) {
       if (err) {
