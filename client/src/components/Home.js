@@ -45,6 +45,10 @@ class Home extends React.Component {
         else{
         this.props.createBooking({startDate:this.state.startDate.getTime(),endDate:this.state.endDate.getTime()} )
         this.props.getLocation(formValues.location)
+
+        window.sessionStorage.setItem("start", this.state.startDate.getTime());
+        window.sessionStorage.setItem("end", this.state.endDate.getTime());
+        history.push(`/list/${23.195102}/${79.99634396}`)
         }
         //window.sessionStorage.setItem("startDate",this.state.startDate.getTime() );
         //window.sessionStorage.setItem("endDate",this.state.endDate.getTime);
