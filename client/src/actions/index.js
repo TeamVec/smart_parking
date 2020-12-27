@@ -17,3 +17,14 @@ export const getLocation=(location)=>{
        },
     };
 }
+export const createEntry=(entry)=>{
+    return{
+       type:'ENTRIES',
+       payload: {
+           firstName:entry.firstName,
+           lastname:entry.lastname,
+           mobile:entry.mobile
+
+       },
+    };
+}
