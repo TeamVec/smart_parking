@@ -8,7 +8,7 @@ class Header extends React.Component {
     temp=''
     componentDidMount(){
         this.temp=window.sessionStorage.getItem("isSignedIn");
-        console.log(this.temp)
+        // console.log(this.temp)
     }
     signout=()=>{
         window.sessionStorage.removeItem("isSignedIn");

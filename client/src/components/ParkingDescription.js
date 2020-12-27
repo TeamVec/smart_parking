@@ -6,8 +6,8 @@ import Map from "./Map";
 class ParkingDescripition extends React.Component {
     temp=''
     componentDidMount(){
-        this.temp=window.sessionStorage.getItem("isSignedIn");
-        console.log(this.temp)
+        const temp=window.sessionStorage.getItem("email");
+        console.log(temp)
     }
     state={parking:null}
     componentDidMount(){
