@@ -20,7 +20,7 @@ class ListItem  extends React.Component {
                                 {`Car Fare :  ${this.props.carFare==null?"Not Available":`₹ ${this.props.carFare} /hour`} `}
                             </h5>
                             <h6>
-                            {`Bike Fare : ₹ ${this.props.bikeFare} /hour`}
+                            {`Available slots : ${this.props.spots-this.props.booked}`}
                             </h6>
                         </Link>
                 </div>

@@ -5,16 +5,16 @@ import history from '../history'
 import DatePicker from 'react-datepicker'
 import Header from './Header'
 import "react-datepicker/dist/react-datepicker.css";
-import Grid from '@material-ui/core/Grid';
 import DateFnsUtils from '@date-io/date-fns';
 import {
   MuiPickersUtilsProvider,
   KeyboardTimePicker,
   KeyboardDatePicker,
 } from '@material-ui/pickers';
-import Button from '@material-ui/core/Button';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import { getDate } from 'date-fns'
+import { createBooking ,getLocation} from "../actions";
+import { connect } from 'react-redux'
 
 class Home extends React.Component {
     
@@ -37,10 +37,15 @@ class Home extends React.Component {
     }
     
     onSubmit= async (formValues)=>{
-        console.log(formValues)
-        history.push('/list')
-        console.log(JSON.stringify(this.state.startDate).slice(1,11))
-        console.log(this.state.endDate.getTime())
+        const endDate=this.state.endDate.getTime()
+        //console.log(formValues)
+        //history.push('/list')
+        this.props.createBooking({startDate:this.state.startDate.getTime(),endDate:this.state.endDate.getTime()} )
+        this.props.getLocation(formValues.location)
+        //window.sessionStorage.setItem("startDate",this.state.startDate.getTime() );
+        //window.sessionStorage.setItem("endDate", this.state.endDate.getTime);
+        //console.log(JSON.stringify(this.state.startDate).slice(1,11))
+        //console.log(this.state.endDate.getTime())
         
     }
     onLocationsubmit=() =>{
@@ -67,8 +72,10 @@ class Home extends React.Component {
                      onChange={date=>this.setState({startDate:date})}
                      dateFormat='yyyy/MM/dd'
                     /> */}
+                    
                     <MuiPickersUtilsProvider utils={DateFnsUtils}>
       {/* <Grid container justify="center"> */}
+      
       <div  className="datetime" style={{background: "rgba(255, 255,255)"}}>
         <KeyboardDatePicker
           disableToolbar
@@ -84,7 +91,10 @@ class Home extends React.Component {
           }}
           minDate={new Date()}
         />
+        
+  
         <ArrowForwardIcon/>
+        
          <KeyboardDatePicker
           disableToolbar
           variant="inline"
@@ -148,7 +158,9 @@ const validate =formValues=>{
     }
 
 
-export default reduxForm({
+const form= reduxForm({
  form:'home',
  validate:validate,
 })(Home);
+
+export default connect(null,{createBooking,getLocation})(form)
