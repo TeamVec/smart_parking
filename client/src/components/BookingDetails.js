@@ -3,15 +3,12 @@ import React from "react";
 // import DatePicker from "react-datepicker";
 // import date from "date-and-time";
 // import "react-datepicker/dist/react-datepicker.css";
-import Grid from '@material-ui/core/Grid';
-import DateFnsUtils from '@date-io/date-fns';
-import {
-  MuiPickersUtilsProvider,
-  KeyboardTimePicker,
-  KeyboardDatePicker,
-} from '@material-ui/pickers';
+import TextField from '@material-ui/core/TextField';
+import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import Header from './Header'
 
 function BookingDetails() {
@@ -19,19 +16,24 @@ function BookingDetails() {
   const [selectedDate, setSelectedDate] = React.useState(new Date());
   const [selectedDateend, setSelectedDateend] = React.useState(new Date());
 
-  const handleDateChange = (date) => {
-    setSelectedDate(date);
-    
-  };
-  const handleDateChangeend = (date) => {
-    setSelectedDateend(date);
-    
-  };
   const handleClick = ()=>{
     console.log(selectedDate);
     console.log(selectedDateend);
   }
-
+  function handleOnChange(value) {
+    this.setState({
+       phone: value
+    });
+ }
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      '& .MuiTextField-root': {
+        margin: theme.spacing(1),
+        width: '25ch',
+      },
+    },
+  }));
+  const classes = useStyles();
 
     return (
       <div>
@@ -39,63 +41,34 @@ function BookingDetails() {
       <div className="bookdetails">
         <h4 style={{paddingTop:"20px"}}>Complete Your Parking Reservation</h4>
         <h2>Yuvraj Parking</h2>
-        <MuiPickersUtilsProvider utils={DateFnsUtils}>
-      <Grid container justify="space-around">
-      
-        <h4>Start</h4>
-        <KeyboardDatePicker
-          disableToolbar
-          variant="inline"
-          format="dd/MM/yyyy"
-          margin="normal"
-          id="date-picker-inline"
-          label="Start Date"
-          value={selectedDate}
-          onChange={handleDateChange}
-          KeyboardButtonProps={{
-            'aria-label': 'change date',
-          }}
+        <div style={{textAlign:"center",display:"inline-flex",marginLeft:"28%",marginTop:"30px"}}>
+    
+        <h5 style={{marginRight:"10px"}}>FirstName:</h5>
+        <TextField
+          className="first"
+          required
+          id="filled-required"
+          label="Required"
+          placeholder="FirstName"
+          variant="filled"
         />
-        <KeyboardTimePicker
-          margin="normal"
-          id="time-picker"
-          label="Start Time"
-          value={selectedDate}
-          onChange={handleDateChange}
-          KeyboardButtonProps={{
-            'aria-label': 'change time',
-          }}
+        <h5 style={{marginLeft:"30px",marginRight:"10px"}}>LastName:</h5>
+        <TextField
+          className="Second"
+          required
+          id="filled-required"
+          label="Required"
+          variant="filled"
+          placeholder="LastName"
         />
-         </Grid>
-        <Grid container justify="space-around">
-        <h4>End</h4>
-        <KeyboardDatePicker
-          disableToolbar
-          variant="inline"
-          format="dd/MM/yyyy"
-          margin="normal"
-          id="date-picker-inline"
-          label="End Date"
-          value={selectedDateend}
-          onChange={handleDateChangeend}
-          KeyboardButtonProps={{
-            'aria-label': 'change date',
-          }}
-        />
-        <KeyboardTimePicker
-          margin="normal"
-          id="time-picker"
-          label=" End Time"
-          value={selectedDateend}
-          onChange={handleDateChangeend}
-          KeyboardButtonProps={{
-            'aria-label': 'change time',
-          }}
-        />
-      </Grid>
-    </MuiPickersUtilsProvider>
+         </div>
+   <div className="formControl">
+        <h5>Phone number:</h5>
+      <input type="tel" id="UserMobile" maxlength="10" data-fv-numeric="true" data-fv-numeric-message="Please enter valid phone numbers" data-fv-phone-country11="IN" required="required" data-fv-notempty-message="This field cannot be left blank." placeholder="Mobile No. " className="form-control" name="data[User][mobile]" data-fv-field="data[User][mobile]" ></input>
+      </div>
+     
     <Link to='/confirmBooking'>
-    <Button variant="contained" color="primary" style={{margin:"10rem 50rem auto 50rem",fontSize: "1.2em"}} onClick={handleClick}>
+    <Button variant="contained" color="primary" style={{margin:"5rem 50rem auto 50rem",fontSize: "1.2em"}} onClick={handleClick}>
         Book
       </Button>
     </Link>

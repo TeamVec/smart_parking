@@ -93,6 +93,7 @@ class Home extends React.Component {
             'aria-label': 'change date',
           }}
           minDate={new Date()}
+          
         />
         
   
@@ -111,6 +112,7 @@ class Home extends React.Component {
             'aria-label': 'change date',
           }}
           minDate={new Date()}
+          maxDate="+1w"
         />
          </div>
          <div  className="datetime2" style={{background:"white"}}>
@@ -124,6 +126,7 @@ class Home extends React.Component {
             'aria-label': 'change time',
           }}
           minDate={new Date()}
+          maxDate="+1w"
         />
         <ArrowForwardIcon/>
         <KeyboardTimePicker
@@ -136,6 +139,7 @@ class Home extends React.Component {
             'aria-label': 'change time',
           }}
           minDate={new Date()}
+          maxDate="+1w"
         />
          </div>
     </MuiPickersUtilsProvider>
