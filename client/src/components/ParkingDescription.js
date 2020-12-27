@@ -4,10 +4,15 @@ import Header from "./Header";
 import Map from "./Map";
 
 class ParkingDescripition extends React.Component {
-  state = { parking: null };
-  componentDidMount() {
-    const park_id = this.props.match.params.id;
-    fetch("http://localhost:5000/user/parkingDetails", {
+    temp=''
+    componentDidMount(){
+        this.temp=window.sessionStorage.getItem("isSignedIn");
+        console.log(this.temp)
+    }
+    state={parking:null}
+    componentDidMount(){
+       const park_id=this.props.match.params.id;
+        fetch("http://localhost:5000/user/parkingDetails", {
       method: "POST",
       headers: {
         "Content-Type": "application/json;charset=utf-8",
@@ -16,8 +21,8 @@ class ParkingDescripition extends React.Component {
     })
       .then((response) => response.json())
       .then((data) => {
-        this.setState({ parking: data[0] });
-        console.log(data);
+        this.setState({parking:data[0]})
+        //console.log(data)
       });
   }
 
