@@ -51,7 +51,7 @@ class ParkingDescripition extends React.Component {
                       ? "Not Available"
                       : `₹ ${this.state.parking.fare_bike} / hour`
                   } `}</h4>
-                  <h5>{`Bike Fare : ₹ ${this.state.parking.fare_bike} / hour`}</h5>
+                  <h5></h5>
                 </div>
                 <div className="content">
                   <h4>About This Facility</h4>

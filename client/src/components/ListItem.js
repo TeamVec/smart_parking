@@ -4,6 +4,7 @@ import './ListItem.css'
 
 class ListItem  extends React.Component {
     render(){
+        console.log(this.props)
         return (
                
                 <div className='list-item item'  style={{alignItems:"center"}}>
@@ -20,7 +21,7 @@ class ListItem  extends React.Component {
                                 {`Car Fare :  ${this.props.carFare==null?"Not Available":`₹ ${this.props.carFare} /hour`} `}
                             </h5>
                             <h6>
-                            {`Bike Fare : ₹ ${this.props.bikeFare} /hour`}
+                            {`Available spots : ${this.props.available}`}
                             </h6>
                         </Link>
                 </div>
