@@ -8,39 +8,42 @@ import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import { connect } from 'react-redux'
 import Header from './Header'
+import { render } from '@testing-library/react';
 
-function BookingDetails() {
+class BookingDetails extends React.Component {
   // state = { startDate: new Date(), endDate: new Date() };
-  const [selectedDate, setSelectedDate] = React.useState(new Date());
-  const [selectedDateend, setSelectedDateend] = React.useState(new Date());
-
-  const handleClick = ()=>{
-    console.log(selectedDate);
-    console.log(selectedDateend);
-  }
-  function handleOnChange(value) {
+  state={parking:null}
+  componentDidMount(){
+    const park_id=this.props.match.params.id;
+     fetch("http://localhost:5000/user/parkingDetails", {
+   method: "POST",
+   headers: {
+     "Content-Type": "application/json;charset=utf-8",
+   },
+   body: JSON.stringify({ park_id: park_id }),
+ })
+   .then((response) => response.json())
+   .then((data) => {
+     this.setState({parking:data[0]})
+     //console.log(data)
+   });
+}
+  
+   handleOnChange(value) {
     this.setState({
        phone: value
     });
  }
-  const useStyles = makeStyles((theme) => ({
-    root: {
-      '& .MuiTextField-root': {
-        margin: theme.spacing(1),
-        width: '25ch',
-      },
-    },
-  }));
-  const classes = useStyles();
 
+    render(){
     return (
       <div>
         <Header/>
       <div className="bookdetails">
         <h4 style={{paddingTop:"20px"}}>Complete Your Parking Reservation</h4>
-        <h2>Yuvraj Parking</h2>
+        <h2>hi</h2>
         <div style={{textAlign:"center",display:"inline-flex",marginLeft:"28%",marginTop:"30px"}}>
     
         <h5 style={{marginRight:"10px"}}>FirstName:</h5>
@@ -68,7 +71,7 @@ function BookingDetails() {
       </div>
      
     <Link to='/confirmBooking'>
-    <Button variant="contained" color="primary" style={{margin:"5rem 50rem auto 50rem",fontSize: "1.2em"}} onClick={handleClick}>
+    <Button variant="contained" color="primary" style={{margin:"5rem 50rem auto 50rem",fontSize: "1.2em"}} >
         Book
       </Button>
     </Link>
@@ -76,6 +79,5 @@ function BookingDetails() {
       </div>
     );
   }
-
-export default BookingDetails;
-
+}
+export default (BookingDetails);

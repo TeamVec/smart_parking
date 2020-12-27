@@ -18,7 +18,7 @@ import { connect } from 'react-redux'
 
 class Home extends React.Component {
     
-    state = { startDate: new Date(), endDate: new Date() }
+    state = { keyword:'', startDate: new Date(), endDate: new Date() }
     
     renderInput({input,meta}){
         return(
@@ -35,15 +35,19 @@ class Home extends React.Component {
         )
 
     }
-    
     onSubmit= async (formValues)=>{
-        const endDate=this.state.endDate.getTime()
+        //const endDate=this.state.endDate.getTime()
         //console.log(formValues)
         //history.push('/list')
+        if(formValues.location!='ranjhi, jabalpur'){
+          window.alert("Sorry!! Parking not available")
+        }
+        else{
         this.props.createBooking({startDate:this.state.startDate.getTime(),endDate:this.state.endDate.getTime()} )
         this.props.getLocation(formValues.location)
+        }
         //window.sessionStorage.setItem("startDate",this.state.startDate.getTime() );
-        //window.sessionStorage.setItem("endDate", this.state.endDate.getTime);
+        //window.sessionStorage.setItem("endDate",this.state.endDate.getTime);
         //console.log(JSON.stringify(this.state.startDate).slice(1,11))
         //console.log(this.state.endDate.getTime())
         
@@ -64,11 +68,14 @@ class Home extends React.Component {
             err => { console.log(err.message); }
         ) 
     }
+    onChange(e){
+      this.setState({keyword: e.target.value});
+    }
     render(){ 
         return (
             <div>
                 <Header/>
-                <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="ui error form">
+                <form  onSubmit={this.props.handleSubmit(this.onSubmit)} className="ui error form">
                     <Field name='location' component={this.renderInput}/>
                     {/* <DatePicker
                      selected={this.state.startDate}
@@ -95,8 +102,6 @@ class Home extends React.Component {
           minDate={new Date()}
           
         />
-        
-  
         <ArrowForwardIcon/>
         
          <KeyboardDatePicker
@@ -161,6 +166,7 @@ const validate =formValues=>{
     if(!formValues.location){
         errors.location='You must enter a location.'
     }
+    
     return errors
     }
 
