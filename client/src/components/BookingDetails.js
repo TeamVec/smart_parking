@@ -9,6 +9,7 @@ import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import Header from './Header'
 
 function BookingDetails() {
   // state = { startDate: new Date(), endDate: new Date() };
@@ -35,6 +36,8 @@ function BookingDetails() {
   const classes = useStyles();
 
     return (
+      <div>
+        <Header/>
       <div className="bookdetails">
         <h4 style={{paddingTop:"20px"}}>Complete Your Parking Reservation</h4>
         <h2>Yuvraj Parking</h2>
@@ -69,6 +72,7 @@ function BookingDetails() {
         Book
       </Button>
     </Link>
+      </div>
       </div>
     );
   }

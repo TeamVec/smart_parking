@@ -69,7 +69,7 @@ function SignIn() {
         </form>
         <p className="or">or</p>
   
-          <a className="google" href="https://my-keeper-server.herokuapp.com/auth/google"><div>
+          <a className="google" href="https://localhost:5000/auth/google"><div>
             <img className="x" src="google.png" alt="GOOGLE" />
             <p className="x bold"> Google</p>
           </div></a>

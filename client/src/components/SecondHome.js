@@ -6,16 +6,18 @@ import Header from "./Header";
 class SecondHome extends React.Component {
     state={parkingList:[]}
     componentDidMount(){
+      
       fetch("http://localhost:5000/user/parkings", {
         method: "POST",
         headers: {
           "Content-Type": "application/json;charset=utf-8",
        
-        },
-        body: JSON.stringify({ lat:23.195102 ,lng:79.99634396 }),
+        }, 
+        body: JSON.stringify({ lat:this.props.match.params.lat ,lng:this.props.match.params.long ,start:window.sessionStorage.getItem("start"),end:window.sessionStorage.getItem("end")}),
       })
         .then((response) => response.json())
         .then((data) => {
+            // console.log(data)
           this.setState({parkingList:data});
         });
     }

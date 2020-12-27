@@ -12,7 +12,7 @@ class List extends React.Component {
             name={parking.p_name}
             address={parking.address}
             carFare={parking.fare_car}
-            bikeFare={parking.fare_bike}
+            available={parking.spots-parking.booked}
             image="https://d2uqqhmijd5j2z.cloudfront.net/files/321814/gallery/Screenshot_2.jpg?1543927700"
             summary={parking.p_description}
           />
