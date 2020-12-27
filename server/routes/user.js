@@ -54,7 +54,7 @@ router.post("/parkings", function (req, res) {
     "SELECT parking_id,p_name,latitude,longitude,p_description,fare_car,address,spots,verified,COUNT(parking_id) as booked  from \
     (SELECT parking_id,p_name,latitude,longitude,p_description,fare_car,address,spots,verified from parking_details where ( 6371 * acos( cos( radians(23.195102) ) * cos( radians( latitude ) ) *\
     cos( radians( longitude ) - radians(79.99634396) ) + sin( radians(23.195102) ) *\
-    sin( radians( latitude ) ) ) ) <2)as t2 natural join booking WHERE (arival<13 AND 13<checkout)OR(arival<16 AND 16<checkout) GROUP BY parking_id",
+    sin( radians( latitude ) ) ) ) <1)as t2 natural join booking WHERE (arival<13 AND 13<checkout)OR(arival<16 AND 16<checkout) GROUP BY parking_id",
     [req.body.lat,req.body.lng,req.body.lat],
     function (err, rows, field) {
       if (err) {
