@@ -32,7 +32,7 @@ class ParkingDescripition extends React.Component {
         return (
             <div>
                 <Header/>
-            <div className='ui container' style={{margin:"0" ,backgroundColor: "#ffffff", backgroundImage: 'url("https://www.transparenttextures.com/patterns/green-gobbler.png")',height:"91vh",width:"100%"}}>
+            <div className='ui container' style={{margin:"0" ,backgroundColor: "#ffffff", backgroundImage: 'url("https://www.transparenttextures.com/patterns/green-gobbler.png")',height:"91vh",width:"100%" ,paddingTop:"30px"}}>
                 <div  className='ui grid'>
                     <div className='seven wide column'>
                         
