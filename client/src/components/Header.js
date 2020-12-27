@@ -28,7 +28,7 @@ class Header extends React.Component {
             return(
                 <div>
                 <Link style={{textDecoration:'none',fontWeight:"500"}} to='/previousBookings' className='item'>Previous Bookings</Link>
-                <button onClick={this.signout} style={{textDecoration:'none',fontWeight:"500"}}  className='item'>SignOut</button>
+                <button onClick={this.signout} style={{textDecoration:'none',fontWeight:"500",backgroundColor:"grey"}}  className='item'>SignOut</button>
             </div>
                 
             )

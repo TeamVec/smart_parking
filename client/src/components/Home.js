@@ -39,7 +39,7 @@ class Home extends React.Component {
     onSubmit= async (formValues)=>{
         console.log(formValues)
         history.push('/list')
-        console.log(JSON.stringify(this.state.startDate).slice(1,11))
+        console.log(this.state.startDate.getTime())
         console.log(this.state.endDate.getTime())
         
     }
@@ -67,7 +67,7 @@ class Home extends React.Component {
                      onChange={date=>this.setState({startDate:date})}
                      dateFormat='yyyy/MM/dd'
                     /> */}
-                    <MuiPickersUtilsProvider utils={DateFnsUtils}>
+        <MuiPickersUtilsProvider utils={DateFnsUtils}>
       {/* <Grid container justify="center"> */}
       <div  className="datetime" style={{background: "rgba(255, 255,255)"}}>
         <KeyboardDatePicker
@@ -83,6 +83,7 @@ class Home extends React.Component {
             'aria-label': 'change date',
           }}
           minDate={new Date()}
+          
         />
         <ArrowForwardIcon/>
          <KeyboardDatePicker
@@ -98,6 +99,7 @@ class Home extends React.Component {
             'aria-label': 'change date',
           }}
           minDate={new Date()}
+          maxDate="+1w"
         />
          </div>
          <div  className="datetime2" style={{background:"white"}}>
@@ -111,6 +113,7 @@ class Home extends React.Component {
             'aria-label': 'change time',
           }}
           minDate={new Date()}
+          maxDate="+1w"
         />
         <ArrowForwardIcon/>
         <KeyboardTimePicker
@@ -123,6 +126,7 @@ class Home extends React.Component {
             'aria-label': 'change time',
           }}
           minDate={new Date()}
+          maxDate="+1w"
         />
          </div>
     </MuiPickersUtilsProvider>

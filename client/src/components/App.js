@@ -9,7 +9,7 @@ import ConfirmBooking from './ConfirmBooking'
 import history from '../history'
 import SecondHome from './SecondHome'
 import PreviousBooking from './PreviousBooking'
-
+import BookingDetails from './BookingDetails'
 
 function App() {
         
@@ -26,6 +26,7 @@ function App() {
                         <Route path='/description/:id' exact component={ParkingDescription}/>
                         <Route path='/confirmBooking' exact component={ConfirmBooking}/>
                         <Route path='/previousBookings' exact component={PreviousBooking}/>
+                        <Route path='/bookingDetails/:id' exact component={BookingDetails}/>
                     </Switch>
                         
                 </div> 

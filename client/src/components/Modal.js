@@ -1,14 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import './App.css'
 
 const Modal =props=>{
     return ReactDOM.createPortal(
-        <div style={{height:'110vh'}} onClick={props.onDismiss} className="ui dimmer modals visible active">
+        <div style={{height:'100vh' ,backgroundColor:"white",margin:"0",padding:"0"}} onClick={props.onDismiss} className="ui dimmer modals visible active">
             <div onClick={e=>e.stopPropagation()}  >
-               <div className='header'>
+               <h1 className='header'>
                    {props.title}
-               </div>
-               <div className='content'>
+               </h1>
+               <div className='contentab'>
                   {props.content}
                </div>
                <div className='actions'>

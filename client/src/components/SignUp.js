@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import history from '../history'
 import Header from './Header'
+import validator from 'validator';
 function SignUp() {
     
     const [user, setNote] = useState({
@@ -24,6 +25,7 @@ function SignUp() {
     function signUp(event) {
      
       event.preventDefault();
+      if(validator.isEmail(user.username)){
      if(user.password==user.confirmPassword){
       fetch("http://localhost:5000/auth/user/register", {
         method: "POST",
@@ -50,6 +52,9 @@ function SignUp() {
      }
      else{
        setPass("Password doesn't match");
+     }}
+     else{
+      setPass("Enter correct email");
      }
   
     
