@@ -12,8 +12,8 @@ class SecondHome extends React.Component {
         headers: {
           "Content-Type": "application/json;charset=utf-8",
        
-        },
-        body: JSON.stringify({ lat:this.props.match.params.lat ,lng:this.props.match.params.long }),
+        }, 
+        body: JSON.stringify({ lat:this.props.match.params.lat ,lng:this.props.match.params.long ,start:window.sessionStorage.getItem("start"),end:window.sessionStorage.getItem("end")}),
       })
         .then((response) => response.json())
         .then((data) => {

@@ -19,7 +19,7 @@
   }
   .cont {
     position: relative;
-    margin: 15% 0 0 35%;
+    margin: 7% 0 0 25%;
   }
   .cont-button {
     position: relative;
@@ -44,3 +44,155 @@
   background-image: url("https://www.transparenttextures.com/patterns/green-gobbler.png");
     height: 89.5vh;
   }
+  .ui.column.grid>[class*="seven wide"].column, .ui.grid>.column.row>[class*="seven wide"].column, .ui.grid>.row>[class*="seven wide"].column, .ui.grid>[class*="seven wide"].column {
+    width: 38.75%!important;
+  }
+  .MuiFormControl-marginNormal {
+ margin-left: 60px!important;
+ margin-right:60px!important;
+  }
+  .datetime{
+    text-align: center;
+    width:fit-content;
+    margin-left: 25%;
+    margin-top: 20px;
+    border-radius: 7px 7px 0 0;
+  box-shadow: 0 5px rgb(138, 137, 137);
+  }
+  .datetime2{
+    text-align: center;
+    width:fit-content;
+    margin-left: 25%;
+    border-radius: 0 0 7px 7px;
+  box-shadow: 0 1px rgb(138, 137, 137);
+  }
+  
+  .signin {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px #ccc;
+    padding: 10px;
+    width: 450px;
+  
+    float: left;
+    margin-top: 70px;
+    margin-left: 34%;
+    position: relative;
+  }
+  
+  #page-container {
+    overflow: hidden;
+    display: block;
+    position: relative;
+    padding-bottom: 50px;
+    min-height: 100vh;
+  }
+  
+  .input {
+    border: 1px solid rgba(252, 252, 252, 0.4);
+    background-color: rgba(155, 149, 149, 0.2);
+    width: 300px;
+    border-radius: 7px;
+    font-family: "Source Sans Pro", sans-serif;
+    padding: 10px 15px;
+    margin: 0 auto 20px auto;
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    columns: #333333;
+    font-weight: 300;
+  }
+  
+  .signupbutton {
+    appearance: none;
+    outline: 0;
+  
+    background-color: rgb(34, 30, 30);
+    border: 0;
+    padding: 10px 15px;
+    color: #fff;
+    border-radius: 7px;
+    width: 300px;
+    font-size: 18px;
+    margin-left: 65px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .button:hover {
+    /* background-color: rgb(109, 109, 109); */
+    color: #f5ba13;
+  }
+  .or {
+    text-align: center;
+  }
+  
+  .x {
+    display: inline;
+    height: 20px;
+    width: 20px;
+  }
+  .y {
+    display: inline-block;
+    margin-bottom: 0;
+  }
+  
+  .google {
+    text-align: center;
+    box-shadow: 0 2px 5px #ccc;
+    height: 46px;
+    width: 150px;
+    background-color: #fff;
+    padding: 9px;
+    border-radius: 10px;
+  
+    margin-left: 31%;
+    display: block;
+    cursor: pointer;
+    border: 0;
+  }
+  /* .google:hover{
+    background-color: rgb(109, 109, 109);
+  
+    text-decoration: none;
+  } */
+  
+  .bold {
+    color: #555555;
+    font-size: 18px;
+    font-family: Montserrat;
+    font-weight: 600;
+    padding-top: 12px;
+    padding-left: 7px;
+  }
+  .newtokeeper {
+    margin-left: 30%;
+    margin-bottom: 20px;
+  }
+  .sign {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  /* .up{
+    color: #fab801;
+  } */
+  
+  .confirm {
+    margin-bottom: 2px;
+  }
+  .match {
+    margin-left: 66px;
+    color: red;
+    font-size: 14px;
+    margin-bottom: 0px;
+  }
+  .mail {
+    margin-left: 82%;
+    padding: 5px;
+    background-color: #fff;
+    border-radius: 10px;
+    border: 0;
+    cursor: pointer;
+  }
+  
