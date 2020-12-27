@@ -24,30 +24,14 @@ class ParkingDescripition extends React.Component {
       .then((response) => response.json())
       .then((data) => {
         this.setState({parking:data[0]})
-        console.log(data)
+        //console.log(data)
       });
 
     }
-    renderButton=()=>{
-        if(this.temp!="yes"){
-            <Link to={`/bookingDetails/${id}`}>
-                <button  className='ui primary button'>
-                    BOOK NOW
-                </button> 
-            </Link>
-            
-        }  
-        else{
-            <Link to={`/signIn`}>
-                <button  className='ui primary button'>
-                    For Booking SignIn
-                </button> 
-            </Link>
-
-        }  
-    }
+    
 
     render(){
+        
         const {id}=this.props.match.params;
         if(!this.state.parking){
             return(<div>Loading..</div>)
@@ -76,9 +60,14 @@ class ParkingDescripition extends React.Component {
                                         </div>
                                     </div>
                                 </div>
+                                
                             </div>
                             <div  className='extra button'>
-                            
+                            <Link to={`/bookingDetails/${id}`}>
+                            <button  className='ui primary button'>
+                                BOOK NOW
+                            </button> 
+                            </Link>
                             </div>
                                   
                                 
