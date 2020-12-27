@@ -43,7 +43,7 @@ class BookingDetails extends React.Component {
         <Header/>
       <div className="bookdetails">
         <h4 style={{paddingTop:"20px"}}>Complete Your Parking Reservation</h4>
-        <h2>hi</h2>
+        <h2>{parking.p_name}</h2>
         <div style={{textAlign:"center",display:"inline-flex",marginLeft:"28%",marginTop:"30px"}}>
     
         <h5 style={{marginRight:"10px"}}>FirstName:</h5>
